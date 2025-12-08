@@ -26,20 +26,49 @@ def get_data():
     conn.close()
     return df
 
-# go back and redo these functions using sqlite
-
+# Average Grade Calculations
 def calculate_average_grade(df):
     return df['grade'].mean()
+# Using SQLite
+def calculate_average_grade_sqlite():
+    conn = sqlite3.connect('student_grades.db')
+    cursor = conn.cursor()
 
+    # using AVG function
+    cursor.execute("SELECT AVG(grade) FROM student_data")
+    avg_grade = cursor.fetchone()[0]
+    conn.close()
+    return avg_grade
+
+# Average Attendance
 def calculate_average_attendance(df):
     return df['attendance'].mean()
+# Using SQLite
+def calculate_average_attendance_sqlite():
+    conn = sqlite3.connect('student_grades.db')
+    cursor = conn.cursor()
 
+    cursor.execute("SELECT AVG(attendance) FROM student_data")
+    avg_attendance = cursor.fetchone()[0]
+    conn.close()
+    return avg_attendance
+
+# Number of Passes
 def calculate_num_passes(df):
     #defining passes means >40
     #if pass assign value 1, if fail assign 0
     passes = df['grade'] > 40
     # calculates number of passes
     return passes.sum()
+# Using SQLite
+def calculate_num_passes_sqlite():
+    conn = sqlite3.connect('student_grades.db')
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT COUNT(ALL) FROM student_data WHERE grade > 40")
+    num_passes = cursor.fetchone()[0]
+    conn.close()
+    return num_passes
 
 #Calculates the number of grades in each boundary
 # Easier/More efficient to combine the functions into one to save...
@@ -55,9 +84,41 @@ def calculate_no_b_grades(df):
 
 def grade_distribution(df):
     bounds = [0, 40, 60, 70, 100]  # boundaries
-    labels = ['A', 'B', 'C', 'Fail']
+    labels = ['Fail', 'C', 'B', 'A']
     df['grade_band'] = pd.cut(df['grade'], bins=bounds, labels=labels, right=True)
-    return df['grade_band'].value_counts()
+    # Count how many students fall into each band
+    counts = df['grade_band'].value_counts()
+
+    # Reorder to A, B, C, Fail
+    ordered = ['A', 'B', 'C', 'Fail']
+    return counts.reindex(ordered)
+def grade_distribution_sqlite(df):
+    conn = sqlite3.connect('student_grades.db')
+    cursor = conn.cursor()
+    cursor.execute("""
+                   SELECT grade_band, COUNT(*) as count
+                   FROM (
+                       SELECT
+                       CASE
+                       WHEN grade < 40 THEN 'Fail'
+                       WHEN grade < 60 THEN 'C'
+                       WHEN grade < 70 THEN 'B'
+                       ELSE 'A'
+                       END AS grade_band
+                       FROM student_data
+                       )
+                   GROUP BY grade_band
+                   """)
+
+    results = cursor.fetchall()
+    conn.close()
+
+    # Convert results into a dictionary
+    counts = {band: count for band, count in results}
+
+    # Reorder to A, B, C, Fail
+    ordered = ['A', 'B', 'C', 'Fail']
+    return {band: counts.get(band, 0) for band in ordered}
 
 if __name__ == "__main__":
     df = get_data()
