@@ -5,9 +5,9 @@ import numpy as np
 #quick_array = np.array([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15])
 #print(quick_array)
 
-import tkinter as tk
+import studentdata_gui as tk
 
-from tkinter import ttk
+from studentdata_gui import ttk
 """
 win = tk.Tk()
 win.geometry('500x500')
