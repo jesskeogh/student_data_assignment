@@ -18,40 +18,40 @@ for row in c.execute('SELECT * FROM student_data'):
 
 import sqlite3
 import pandas as pd
+from database_operations import get_data
 
+# print(conn.execute("SELECT * FROM student_data").fetchall())
+
+# def temp_function():
+#     print(conn.execute("SELECT AVG(grade) FROM student_data").fetchone()[0])
+#
+# temp_function()
+
+"""
 def get_data():
     conn = sqlite3.connect('student_grades.db')
     df = pd.read_sql_query(
         'SELECT * FROM student_data', conn )
     conn.close()
-    return df
+    return df"""
 
 # Average Grade Calculations
 def calculate_average_grade(df):
     return df['grade'].mean()
 # Using SQLite
-def calculate_average_grade_sqlite():
-    conn = sqlite3.connect('student_grades.db')
-    cursor = conn.cursor()
-
-    # using AVG function
-    cursor.execute("SELECT AVG(grade) FROM student_data")
-    avg_grade = cursor.fetchone()[0]
-    conn.close()
+def calculate_average_grade_sqlite(conn):
+    avg_grade =  conn.execute("SELECT AVG(grade) FROM student_data")
+    avg_grade = avg_grade.fetchone()[0]
     return avg_grade
+
 
 # Average Attendance
 def calculate_average_attendance(df):
     return df['attendance'].mean()
 # Using SQLite
-def calculate_average_attendance_sqlite():
-    conn = sqlite3.connect('student_grades.db')
-    cursor = conn.cursor()
-
-    cursor.execute("SELECT AVG(attendance) FROM student_data")
-    avg_attendance = cursor.fetchone()[0]
-    conn.close()
-    return avg_attendance
+def calculate_average_attendance_sqlite(conn):
+    avg_attendance = conn.execute("SELECT AVG(attendance) FROM student_data")
+    return  avg_attendance.fetchone()[0]
 
 # Number of Passes
 def calculate_num_passes(df):
@@ -61,14 +61,10 @@ def calculate_num_passes(df):
     # calculates number of passes
     return passes.sum()
 # Using SQLite
-def calculate_num_passes_sqlite():
-    conn = sqlite3.connect('student_grades.db')
-    cursor = conn.cursor()
-
-    cursor.execute("SELECT COUNT(ALL) FROM student_data WHERE grade > 40")
-    num_passes = cursor.fetchone()[0]
-    conn.close()
-    return num_passes
+def calculate_num_passes_sqlite(conn):
+    """STATEMENT IS AI GENERATED - discussed in report"""
+    num_passes =conn.execute("SELECT COUNT(ALL) FROM student_data WHERE grade > 40")
+    return num_passes.fetchone()[0]
 
 #Calculates the number of grades in each boundary
 # Easier/More efficient to combine the functions into one to save...
@@ -92,10 +88,8 @@ def grade_distribution(df):
     # Reorder to A, B, C, Fail
     ordered = ['A', 'B', 'C', 'Fail']
     return counts.reindex(ordered)
-def grade_distribution_sqlite(df):
-    conn = sqlite3.connect('student_grades.db')
-    cursor = conn.cursor()
-    cursor.execute("""
+def grade_distribution_sqlite(conn):
+    grade_dist = conn.execute("""
                    SELECT grade_band, COUNT(*) as count
                    FROM (
                        SELECT
@@ -109,9 +103,8 @@ def grade_distribution_sqlite(df):
                        )
                    GROUP BY grade_band
                    """)
+    return grade_dist.fetchall()
 
-    results = cursor.fetchall()
-    conn.close()
 
     # Convert results into a dictionary
     counts = {band: count for band, count in results}
@@ -120,9 +113,12 @@ def grade_distribution_sqlite(df):
     ordered = ['A', 'B', 'C', 'Fail']
     return {band: counts.get(band, 0) for band in ordered}
 
-if __name__ == "__main__":
-    df = get_data()
-    print("Average grade:", calculate_average_grade(df))
-    print("Average attendance:", calculate_average_attendance(df))
-    print("No. of passes:", calculate_num_passes(df))
-    print("Grade distribution:", grade_distribution(df))
+
+
+if __name__ == "__main__": # what does __main__
+    conn = get_data()
+    print("Average grade:", calculate_average_grade_sqlite(conn))
+    print("Average attendance:", calculate_average_attendance_sqlite(conn))
+    print("No. of passes:", calculate_num_passes_sqlite(conn))
+    print("Grade distribution:", grade_distribution_sqlite(conn))
+    conn.close()
