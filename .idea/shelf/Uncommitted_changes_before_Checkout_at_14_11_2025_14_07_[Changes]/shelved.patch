@@ -1,0 +1,36 @@
+Index: main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># this is a test page to ensure this works for my assignment\r\n\r\nstudents = []\r\n\r\ndef add_student():\r\n    name = input(\"Enter student name: \")\r\n    grade = input(\"Enter grade: \")\r\n    email = input(\"Enter email: \")\r\n    student = {\"name\": name, \"grade\": grade, \"email\": email}\r\n    students.append(student)\r\n    print(\"Student added!\")\r\n\r\ndef view_students():\r\n    for i, s in enumerate(students, start=1):\r\n        print(f\"{i}. {s['name']} - Grade {s['grade']} - {s['email']}\")\r\n\r\nwhile True:\r\n    print(\"\\n1. Add Student\\n2. View Students\\n3. Exit\")\r\n    choice = input(\"Choose an option: \")\r\n    if choice == \"1\":\r\n        add_student()\r\n    elif choice == \"2\":\r\n        view_students()\r\n    elif choice == \"3\":\r\n        break\r\n    else:\r\n        print(\"Invalid choice.\")\r\n
+===================================================================
+diff --git a/main.py b/main.py
+--- a/main.py	(revision 51c9259602aac7b4bf7c568b9cf769ca90b51c79)
++++ b/main.py	(date 1763038256071)
+@@ -1,27 +1,0 @@
+-# this is a test page to ensure this works for my assignment
+-
+-students = []
+-
+-def add_student():
+-    name = input("Enter student name: ")
+-    grade = input("Enter grade: ")
+-    email = input("Enter email: ")
+-    student = {"name": name, "grade": grade, "email": email}
+-    students.append(student)
+-    print("Student added!")
+-
+-def view_students():
+-    for i, s in enumerate(students, start=1):
+-        print(f"{i}. {s['name']} - Grade {s['grade']} - {s['email']}")
+-
+-while True:
+-    print("\n1. Add Student\n2. View Students\n3. Exit")
+-    choice = input("Choose an option: ")
+-    if choice == "1":
+-        add_student()
+-    elif choice == "2":
+-        view_students()
+-    elif choice == "3":
+-        break
+-    else:
+-        print("Invalid choice.")

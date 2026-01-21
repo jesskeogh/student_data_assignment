@@ -1,0 +1,81 @@
+Index: graphing.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># this is where I do the graphing for my assignment basics\r\n\r\n# this is where I do the graphing for my assignment basics\r\n\r\n# imports matplotlib and functions from\r\nimport matplotlib.pyplot as plt\r\nfrom calculations import get_data, grade_distribution\r\n\r\ndef plot_grade_distribution():\r\n    df = get_data()\r\n    counts = grade_distribution(df)\r\n\r\n    # order by grade name\r\n    order = ['A', 'B', 'C', 'Fail']\r\n    counts = counts.reindex(order)\r\n\r\n    # Bar chart\r\n    counts.plot(kind='bar', color=['green','orange','blue','red'])\r\n    plt.title(\"Grade Distribution\")\r\n    plt.xlabel(\"Grade Band\")\r\n    plt.ylabel(\"Number of Students\")\r\n    plt.show()\r\n\r\ndef plot_grade_distribution_pie():\r\n    df = get_data()\r\n    counts = grade_distribution(df)\r\n    counts.plot(kind='pie', autopct='%1.1f%%')\r\n    plt.title(\"Grade Distribution\")\r\n    plt.ylabel(\"\")  # hide y-label\r\n    plt.show()\r\n\r\nimport sqlite3\r\nimport pandas as pd\r\nimport numpy as np\r\n\r\ndef grade_against_attendance():\r\n    conn = sqlite3.connect('student_grades.db')\r\n    df = pd.read_sql_query(\"SELECT grade, attendance FROM student_data\", conn)\r\n    conn.close()\r\n    return df\r\n\r\n# load data\r\ndf = grade_against_attendance()\r\n\r\n# get X and Y values\r\nx = df['attendance']\r\ny = df['grade']\r\n\r\n# create scatter graph\r\nplt.scatter(x, y, alpha=0.5) # alpha is the density of the data points\r\nplt.xlabel(\"attendance (%)\")\r\nplt.ylabel(\"Grade\")\r\nplt.title(\"Correlation between Attendance and Grade\")\r\n\r\n# Add trendline\r\nm, b = np.polyfit(x, y, 1)\r\nplt.plot(x, m*x + b, color='red')\r\n\r\nplt.show()\r\n\r\nif __name__ == \"__main__\":\r\n    plot_grade_distribution()\r\n    plot_grade_distribution_pie()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/graphing.py b/graphing.py
+--- a/graphing.py	(revision 9afac657f19ca51bbaffe24b31e489d1ec498b1a)
++++ b/graphing.py	(date 1767700542349)
+@@ -58,6 +58,67 @@
+ 
+ plt.show()
+ 
++import sqlite3
++import pandas as pd
++import numpy as np
++
++def grade_against_attendance():
++    conn = sqlite3.connect('student_grades.db')
++    df = pd.read_sql_query("SELECT grade, attendance FROM student_data", conn)
++    conn.close()
++    return df
++
++# load data
++df = grade_against_attendance()
++
++# get X and Y values
++x = df['attendance']
++y = df['grade']
++
++# create scatter graph
++plt.scatter(x, y, alpha=0.5) # alpha is the density of the data points
++plt.xlabel("attendance (%)")
++plt.ylabel("Grade")
++plt.title("Correlation between Attendance and Grade")
++
++# Add trendline
++m, b = np.polyfit(x, y, 1)
++plt.plot(x, m*x + b, color='red')
++
++plt.show()
++
++import sqlite3
++import pandas as pd
++import numpy as np
++
++# Link for correlation help
++# https://www.geeksforgeeks.org/python/plotting-correlation-matrix-using-python/
++def grade_against_attendance():
++    conn = sqlite3.connect('student_grades.db')
++    df = pd.read_sql_query("SELECT grade, attendance FROM student_data", conn)
++    conn.close()
++    return df
++
++# load data
++df = grade_against_attendance()
++
++# get X and Y values
++x = df['attendance']
++y = df['grade']
++
++# create scatter graph
++plt.scatter(x, y, alpha=0.5) # alpha is the density of the data points
++plt.xlabel("attendance (%)")
++plt.ylabel("Grade")
++plt.title("Correlation between Attendance and Grade")
++
++# Add trendline
++m, b = np.polyfit(x, y, 1)
++plt.plot(x, m*x + b, color='red')
++
++plt.show()
++
++"""
+ if __name__ == "__main__":
+     plot_grade_distribution()
+-    plot_grade_distribution_pie()
+\ No newline at end of file
++    plot_grade_distribution_pie()"""
+\ No newline at end of file

@@ -1,0 +1,30 @@
+Index: create_db.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># create dataframe from csv file - make function?\r\nimport pandas as pd\r\ndf = pd.read_csv('student_grades.csv')\r\n\r\n# import SQLite\r\nimport sqlite3\r\nconn = sqlite3.connect(r\"student_grades.db\")\r\n\r\n#import as a function\r\n#def db_connection():\r\n  #  return sqlite3.connect('data/student_grades.db')\r\n\r\ndef create_db():\r\n    with conn:\r\n        df.to_sql(\"student_data\", conn, if_exists=\"replace\", index=False)\r\n\r\ncreate_db()\r\n\r\nc = conn.cursor()\r\nfor row in c.execute('SELECT * FROM student_data'):\r\n    print(row)
+===================================================================
+diff --git a/create_db.py b/create_db.py
+--- a/create_db.py	(revision ad11cfa132a48e06859e9ba8c4d49eb5d4c14daa)
++++ b/create_db.py	(date 1765192600380)
+@@ -18,4 +18,5 @@
+ 
+ c = conn.cursor()
+ for row in c.execute('SELECT * FROM student_data'):
+-    print(row)
+\ No newline at end of file
++    print(row)
++
+Index: main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># this is a test page to ensure this works for my assignment\r\n\r\nimport numpy as np\r\n\r\n#quick_array = np.array([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15])\r\n#print(quick_array)\r\n\r\nimport tkinter as tk\r\n\r\nfrom tkinter import ttk\r\n\"\"\"\r\nwin = tk.Tk()\r\nwin.geometry('500x500')\r\nwin.title(\"Python GUI Time\")\r\nttk.Label(win, text=\"Python GUI Time\").grid(column=0, row=0)\r\nwin.mainloop()\r\n\"\"\"\r\n\r\n# Import required libraries\r\nimport sqlite3\r\nimport pandas as pd\r\n\r\n# Connect to SQLite database\r\nconn = sqlite3.connect(r\"./data/student_grades.db\")\r\n\r\n# Load CSV data into Pandas DataFrame\r\nstud_data = pd.read_csv('data/student_grades.csv')\r\n# Write the data to a sqlite table\r\nstud_data.to_sql('student', conn, if_exists='replace', index=False)\r\n\r\n# Create a cursor object\r\ncur = conn.cursor()\r\n# Fetch and display result\r\nfor row in cur.execute('SELECT * FROM student'):\r\n    print(row)\r\n# Close connection to SQLite database\r\nconn.close()\r\n\r\n\r\n
+===================================================================
+diff --git a/main.py b/main.py
+--- a/main.py	(revision ad11cfa132a48e06859e9ba8c4d49eb5d4c14daa)
++++ b/main.py	(date 1765186882922)
+@@ -35,5 +35,3 @@
+     print(row)
+ # Close connection to SQLite database
+ conn.close()
+-
+-
