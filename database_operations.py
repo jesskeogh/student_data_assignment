@@ -1,5 +1,4 @@
-# create dataframe from csv file - make function?
-# import pandas and SQLite
+# Database Operations File
 import pandas as pd
 import sqlite3
 
@@ -23,12 +22,11 @@ def read_csv_data():
 if __name__ == '__main__':
     create_db()
 
-#create_db()
 
 #c = conn.cursor()
 #for row in c.execute('SELECT * FROM student_data'):
-#    print(row)
+# print(row)
 
 #import as a function
 #def db_connection():
-  #  return sqlite3.connect('data/student_grades.db')
+# return sqlite3.connect('data/student_grades.db')

@@ -1,22 +1,6 @@
 # this is a test page to ensure this works for my assignment
 
-import numpy as np
-
-#quick_array = np.array([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15])
-#print(quick_array)
-
-import studentdata_gui as tk
-
-from studentdata_gui import ttk
-"""
-win = tk.Tk()
-win.geometry('500x500')
-win.title("Python GUI Time")
-ttk.Label(win, text="Python GUI Time").grid(column=0, row=0)
-win.mainloop()
-"""
-
-# Import required libraries
+# Importing required libraries
 import sqlite3
 import pandas as pd
 
@@ -35,5 +19,3 @@ for row in cur.execute('SELECT * FROM student'):
     print(row)
 # Close connection to SQLite database
 conn.close()
-
-

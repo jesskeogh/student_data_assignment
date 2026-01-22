@@ -1,8 +1,15 @@
-# this is where I do the graphing for my assignment basics
-
+# Graphing File
 import matplotlib.pyplot as plt
-from calculations import grade_distribution_sqlite, calculate_num_passes_sqlite, calculate_num_fails_sqlite
+from calculations import (
+    grade_distribution_sqlite,
+    calculate_num_passes_sqlite,
+    calculate_num_fails_sqlite
+)
 from database_operations import get_data, read_csv_data
+import sqlite3
+import pandas as pd
+import numpy as np
+
 
 # Graph made using SQL
 def plot_grade_distribution(conn):
@@ -18,11 +25,12 @@ def plot_grade_distribution(conn):
     counts = counts.reindex(order)
 
     # Bar chart
-    counts.plot(kind='bar', color=['green','orange','blue','red'])
+    counts.plot(kind='bar', color=['green', 'orange', 'blue', 'red'])
     plt.title("Grade Distribution")
     plt.xlabel("Grade Band")
     plt.ylabel("Number of Students")
     plt.show()
+
 
 # Grade distribution shown on a pie chart
 def plot_pass_vs_fail_pie(conn):
@@ -34,14 +42,17 @@ def plot_pass_vs_fail_pie(conn):
     colors = ['green', 'red']
 
     plt.figure(figsize=(5, 5))
-    plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
+    plt.pie(
+        sizes,
+        labels=labels,
+        colors=colors,
+        autopct='%1.1f%%',
+        tartangle=90
+    )
     plt.title("Pass vs Fail Distribution")
     plt.axis('equal')
     plt.show()
 
-import sqlite3
-import pandas as pd
-import numpy as np
 
 def plot_grade_against_attendance(df):
     plt.clf()
@@ -50,7 +61,7 @@ def plot_grade_against_attendance(df):
     y = df['grade']
 
     # create scatter graph
-    plt.scatter(x, y, alpha=0.5) # alpha is the density of the data points
+    plt.scatter(x, y, alpha=0.5)  # alpha is the density of the data points
 
     plt.xlabel("attendance (%)")
     plt.ylabel("Grade")
@@ -61,6 +72,7 @@ def plot_grade_against_attendance(df):
     polynomial = np.poly1d(coeff)
     plt.plot(x, polynomial(x), color='red')
     plt.show()
+
 
 def plot_grade_against_age(df):
     plt.clf()
@@ -79,12 +91,14 @@ def plot_grade_against_age(df):
     plt.plot(x, polynomial(x), color='red')
     plt.show()
 
-"""I have commented this out as this was the code I used to run the graphs from this page"""
+
+"""I have commented this out as this was the code
+I used to test that the the graphs run"""
 # if __name__ == "__main__":
-    # conn = get_data()
-    # df = read_csv_data()
-    # plot_grade_distribution(conn)
-    # #plot_grade_distribution_pie()
-    # plot_grade_against_attendance(df)
-    # plot_pass_vs_fail_pie()
-    # conn.close()
+# conn = get_data()
+# df = read_csv_data()
+# plot_grade_distribution(conn)
+# #plot_grade_distribution_pie()
+# plot_grade_against_attendance(df)
+# plot_pass_vs_fail_pie()
+# conn.close()

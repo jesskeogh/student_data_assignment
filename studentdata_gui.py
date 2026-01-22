@@ -1,8 +1,23 @@
+# Student data GUI File
 import tkinter as tk
 from tkinter import ttk
-from calculations import calculate_average_grade_sqlite, calculate_average_attendance_sqlite, calculate_num_passes_sqlite, calculate_num_fails_sqlite, grade_distribution_sqlite
-from database_operations import get_data, read_csv_data
-from graphing import plot_grade_distribution, plot_grade_against_attendance, plot_grade_against_age, plot_pass_vs_fail_pie
+from calculations import (
+    calculate_average_grade_sqlite,
+    calculate_average_attendance_sqlite,
+    calculate_num_passes_sqlite,
+    calculate_num_fails_sqlite,
+    grade_distribution_sqlite
+)
+from database_operations import (
+    get_data,
+    read_csv_data
+)
+from graphing import (
+    plot_grade_distribution,
+    plot_grade_against_attendance,
+    plot_grade_against_age,
+    plot_pass_vs_fail_pie
+)
 
 conn = get_data()
 df = read_csv_data()
@@ -15,10 +30,12 @@ app.title("Student Data Menu")
 # Text inside the app
 ttk.Label(app, text="Menu").grid(column=0, row=0)
 
+
 # Show average grade
 def show_avg_grade():
     avg = calculate_average_grade_sqlite(conn)
     avg_label.config(text=f"Average Grade: {avg:.2f}")
+
 
 show_average_grade = ttk.Button(
     app,
@@ -40,6 +57,7 @@ def show_avg_attendance():
     avg_att = calculate_average_attendance_sqlite(conn)
     avg_att_label.config(text=f"Average Attendance: {avg_att:.2f}")
 
+
 show_average_attendance = ttk.Button(
     app,
     text="Show average attendance (SQL)",
@@ -60,6 +78,7 @@ def show_num_of_passes():
     num_pass = calculate_num_passes_sqlite(conn)
     num_pass_label.config(text=f"Number of Passes: {num_pass:}")
 
+
 show_num_passes = ttk.Button(
     app,
     text="Show number of passes (SQL)",
@@ -79,6 +98,7 @@ num_pass_label.grid(column=1, row=3, padx=10, pady=10)
 def show_num_of_fails():
     num_fails = calculate_num_fails_sqlite(conn)
     num_fails_label.config(text=f"Number of Fails: {num_fails:}")
+
 
 show_num_fails = ttk.Button(
     app,
@@ -102,6 +122,7 @@ def show_grade_distribution():
     formatted = "\n".join([f"{grade}: {count}" for grade, count in data])
     grade_dist_label.config(text=formatted)
 
+
 show_grade_dist_button = ttk.Button(
     app,
     text="Show Grade Distribution",
@@ -117,9 +138,11 @@ show_grade_dist_button.grid(
 grade_dist_label = ttk.Label(app, text="Grade distribution will appear here")
 grade_dist_label.grid(column=1, row=5, padx=10, pady=10)
 
-#Code to show grade attendance
+
+# Code to show grade attendance
 def show_grade_distribution():
     plot_grade_distribution(conn)
+
 
 show_grade_distribution = ttk.Button(
     app,
@@ -133,9 +156,11 @@ show_grade_distribution.grid(
     pady=10
 )
 
+
 # Code to show grade vs attendance
 def show_grade_against_attendance():
     plot_grade_against_attendance(df)
+
 
 show_grade_against_attendance = ttk.Button(
     app,
@@ -154,6 +179,7 @@ show_grade_against_attendance.grid(
 def show_grade_against_age():
     plot_grade_against_age(df)
 
+
 show_grade_against_age = ttk.Button(
     app,
     text="Show grade against age graph",
@@ -166,8 +192,10 @@ show_grade_against_age.grid(
     pady=10
 )
 
+
 def show_passes_vs_fails():
     plot_pass_vs_fail_pie(conn)
+
 
 show_passes_vs_fails = ttk.Button(
     app,
