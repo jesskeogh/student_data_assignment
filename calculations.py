@@ -63,8 +63,12 @@ def calculate_num_passes(df):
 # Using SQLite
 def calculate_num_passes_sqlite(conn):
     """STATEMENT IS AI GENERATED - discussed in report"""
-    num_passes =conn.execute("SELECT COUNT(ALL) FROM student_data WHERE grade > 40")
+    num_passes = conn.execute("SELECT COUNT(ALL) FROM student_data WHERE grade > 40")
     return num_passes.fetchone()[0]
+
+def calculate_num_fails_sqlite(conn):
+    num_fails = conn.execute("SELECT COUNT(ALL) FROM student_data WHERE grade < 40")
+    return num_fails.fetchone()[0]
 
 #Calculates the number of grades in each boundary
 # Easier/More efficient to combine the functions into one to save...

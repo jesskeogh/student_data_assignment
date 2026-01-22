@@ -1,9 +1,7 @@
 # this is where I do the graphing for my assignment basics
-# this is where I do the graphing for my assignment basics
 
-# imports matplotlib and functions from
 import matplotlib.pyplot as plt
-from calculations import grade_distribution_sqlite
+from calculations import grade_distribution_sqlite, calculate_num_passes_sqlite, calculate_num_fails_sqlite
 from database_operations import get_data, read_csv_data
 
 # Graph made using SQL
@@ -27,13 +25,19 @@ def plot_grade_distribution(conn):
     plt.show()
 
 # Grade distribution shown on a pie chart
-# def plot_grade_distribution_pie():
-#     df = get_data()
-#     counts = grade_distribution(df)
-#     counts.plot(kind='pie', autopct='%1.1f%%')
-#     plt.title("Grade Distribution")
-#     plt.ylabel("")  # hide y-label
-#     plt.show()
+def plot_pass_vs_fail_pie(conn):
+    passes = calculate_num_passes_sqlite(conn)
+    fails = calculate_num_fails_sqlite(conn)
+
+    labels = ['Passes', 'Fails']
+    sizes = [passes, fails]
+    colors = ['green', 'red']
+
+    plt.figure(figsize=(5, 5))
+    plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
+    plt.title("Pass vs Fail Distribution")
+    plt.axis('equal')
+    plt.show()
 
 import sqlite3
 import pandas as pd
@@ -58,10 +62,29 @@ def plot_grade_against_attendance(df):
     plt.plot(x, polynomial(x), color='red')
     plt.show()
 
+def plot_grade_against_age(df):
+    plt.clf()
+    x = df['age']
+    y = df['grade']
+
+    # create scatter graph
+    plt.scatter(x, y, alpha=0.5)
+    plt.xlabel("age (years)")
+    plt.ylabel("Grade")
+    plt.title("Correlation between Age and Grade")
+
+    # Add trendline
+    coeff = np.polyfit(x, y, 1)
+    polynomial = np.poly1d(coeff)
+    plt.plot(x, polynomial(x), color='red')
+    plt.show()
+
+"""I have commented this out as this was the code I used to run the graphs from this page"""
 # if __name__ == "__main__":
     # conn = get_data()
     # df = read_csv_data()
     # plot_grade_distribution(conn)
     # #plot_grade_distribution_pie()
     # plot_grade_against_attendance(df)
+    # plot_pass_vs_fail_pie()
     # conn.close()
