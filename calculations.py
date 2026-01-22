@@ -20,12 +20,6 @@ import sqlite3
 import pandas as pd
 from database_operations import get_data
 
-# print(conn.execute("SELECT * FROM student_data").fetchall())
-
-# def temp_function():
-#     print(conn.execute("SELECT AVG(grade) FROM student_data").fetchone()[0])
-#
-# temp_function()
 
 """
 def get_data():
@@ -34,6 +28,7 @@ def get_data():
         'SELECT * FROM student_data', conn )
     conn.close()
     return df"""
+
 
 # Average Grade Calculations
 def calculate_average_grade(df):
@@ -61,9 +56,9 @@ def calculate_num_passes(df):
     # calculates number of passes
     return passes.sum()
 # Using SQLite
-def calculate_num_passes_sqlite(conn):
+def calculate_num_passes_sqlite(conn, grade_condition):
     """STATEMENT IS AI GENERATED - discussed in report"""
-    num_passes = conn.execute("SELECT COUNT(ALL) FROM student_data WHERE grade > 40")
+    num_passes = conn.execute("SELECT COUNT(ALL) FROM student_data WHERE grade >= 40")
     return num_passes.fetchone()[0]
 
 def calculate_num_fails_sqlite(conn):
@@ -81,7 +76,7 @@ def calculate_no_b_grades(df):
     b_grades = (df['grade'] <= 70) & (df['grade'] > 60)
     return b_grades.sum()
 """
-
+# Grade distribution
 def grade_distribution(df):
     bounds = [0, 40, 60, 70, 100]  # boundaries
     labels = ['Fail', 'C', 'B', 'A']
@@ -92,6 +87,7 @@ def grade_distribution(df):
     # Reorder to A, B, C, Fail
     ordered = ['A', 'B', 'C', 'Fail']
     return counts.reindex(ordered)
+# Grade distribution using SQL
 def grade_distribution_sqlite(conn):
     grade_dist = conn.execute("""
                    SELECT grade_band, COUNT(*) as count
@@ -119,10 +115,10 @@ def grade_distribution_sqlite(conn):
 
 
 
-if __name__ == "__main__": # what does __main__
+if __name__ == "__main__":
     conn = get_data()
     print("Average grade:", calculate_average_grade_sqlite(conn))
     print("Average attendance:", calculate_average_attendance_sqlite(conn))
     print("No. of passes:", calculate_num_passes_sqlite(conn))
-    print("Grade distribution:", grade_distribution_sqlite(conn))
+    print("Grade distribution:", grade_distribution_sqlite(conn) )
     conn.close()

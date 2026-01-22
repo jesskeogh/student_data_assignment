@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from calculations import calculate_average_grade_sqlite, calculate_average_attendance_sqlite, calculate_num_passes_sqlite
+from calculations import calculate_average_grade_sqlite, calculate_average_attendance_sqlite, calculate_num_passes_sqlite, calculate_num_fails_sqlite, grade_distribution_sqlite
 from database_operations import get_data, read_csv_data
 from graphing import plot_grade_distribution, plot_grade_against_attendance, plot_grade_against_age, plot_pass_vs_fail_pie
 
@@ -75,6 +75,48 @@ num_pass_label = ttk.Label(app, text="Number of Passes will appear here")
 num_pass_label.grid(column=1, row=3, padx=10, pady=10)
 
 
+# Show number of fails
+def show_num_of_fails():
+    num_fails = calculate_num_fails_sqlite(conn)
+    num_fails_label.config(text=f"Number of Fails: {num_fails:}")
+
+show_num_fails = ttk.Button(
+    app,
+    text="Show number of fails (SQL)",
+    command=show_num_of_fails
+)
+show_num_fails.grid(
+    column=0,
+    row=4,
+    padx=10,
+    pady=10
+)
+num_fails_label = ttk.Label(app, text="Number of Fails will appear here")
+num_fails_label.grid(column=1, row=4, padx=10, pady=10)
+
+
+# Show grade distribution
+def show_grade_distribution():
+    data = grade_distribution_sqlite(conn)
+    # Convert list of tuples into readable text
+    formatted = "\n".join([f"{grade}: {count}" for grade, count in data])
+    grade_dist_label.config(text=formatted)
+
+show_grade_dist_button = ttk.Button(
+    app,
+    text="Show Grade Distribution",
+    command=show_grade_distribution
+)
+show_grade_dist_button.grid(
+    column=0,
+    row=5,
+    padx=10,
+    pady=10
+)
+
+grade_dist_label = ttk.Label(app, text="Grade distribution will appear here")
+grade_dist_label.grid(column=1, row=5, padx=10, pady=10)
+
 #Code to show grade attendance
 def show_grade_distribution():
     plot_grade_distribution(conn)
@@ -86,7 +128,7 @@ show_grade_distribution = ttk.Button(
 )
 show_grade_distribution.grid(
     column=0,
-    row=5,
+    row=9,
     padx=10,
     pady=10
 )
