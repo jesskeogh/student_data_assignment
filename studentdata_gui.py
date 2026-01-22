@@ -197,12 +197,12 @@ def show_passes_vs_fails():
     plot_pass_vs_fail_pie(conn)
 
 
-show_passes_vs_fails = ttk.Button(
+passes_vs_fails = ttk.Button(
     app,
     text="Show passes vs. fails pie",
     command=show_passes_vs_fails
 )
-show_passes_vs_fails.grid(
+passes_vs_fails.grid(
     column=0,
     row=12,
     padx=10,
@@ -217,7 +217,7 @@ exit_button = ttk.Button(
 )
 exit_button.grid(
     column=0,
-    row=100,
+    row=15,
     padx=10,
     pady=10
 )

@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="439cef36-fdea-4b6e-b084-f381914a0fa0" name="Changes" comment="Making the code best practice and formatted correctly">
-      <change afterPath="$PROJECT_DIR$/test_calculations.py" afterDir="false" />
+    <list default="true" id="439cef36-fdea-4b6e-b084-f381914a0fa0" name="Changes" comment="Starting to add tests">
+      <change afterPath="$PROJECT_DIR$/test_studentdata_gui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphing.py" beforeDir="false" afterPath="$PROJECT_DIR$/graphing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/studentdata_gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/studentdata_gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_calculations.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_calculations.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +61,7 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python tests.Python tests for test_calculations.Test.executor": "Run",
+    "Python tests.Python tests for test_graphing.Test.executor": "Run",
     "Python tests.Python tests in test_test.py.executor": "Run",
     "Python.calculations.executor": "Run",
     "Python.create_db.executor": "Run",
@@ -83,7 +87,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Python tests.Python tests for test_calculations.Test">
+  <component name="RunManager" selected="Python.studentdata_gui">
     <configuration name="studentdata_gui" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="studentdata - 2410312" />
       <option name="ENV_FILES" value="" />
@@ -146,10 +150,27 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for test_graphing.Test" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="studentdata - 2410312" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_graphing.Test&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests for test_calculations.Test" />
         <item itemvalue="Python.studentdata_gui" />
+        <item itemvalue="Python tests.Python tests for test_graphing.Test" />
+        <item itemvalue="Python tests.Python tests for test_calculations.Test" />
         <item itemvalue="Python.test_calculations" />
       </list>
     </recent_temporary>
@@ -198,7 +219,7 @@
       <workItem from="1768736376387" duration="801000" />
       <workItem from="1768740642903" duration="631000" />
       <workItem from="1768742505079" duration="433000" />
-      <workItem from="1769008481152" duration="29881000" />
+      <workItem from="1769008481152" duration="35096000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -296,7 +317,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769094496410</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Starting to add tests">
+      <option name="closed" value="true" />
+      <created>1769097985808</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1769097985808</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,7 +356,8 @@
     <MESSAGE value="Adding Graphs and Calculations to the GUI page" />
     <MESSAGE value="Adding More Graphs and More Calculations to the GUI page" />
     <MESSAGE value="Making the code best practice and formatted correctly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Making the code best practice and formatted correctly" />
+    <MESSAGE value="Starting to add tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Starting to add tests" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/studentdata___2410312$gui.coverage" NAME="gui Coverage Results" MODIFIED="1765290906404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -338,9 +368,9 @@
     <SUITE FILE_PATH="coverage/studentdata___2410312$readfile.coverage" NAME="readfile Coverage Results" MODIFIED="1762525102387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/studentdata___2410312$tkinter.coverage" NAME="tkinter Coverage Results" MODIFIED="1765290851593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/studentdata___2410312$test_calculations.coverage" NAME="test_calculations Coverage Results" MODIFIED="1769097076555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/studentdata___2410312$studentdata_gui.coverage" NAME="studentdata_gui Coverage Results" MODIFIED="1769097732173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/studentdata___2410312$studentdata_gui.coverage" NAME="studentdata_gui Coverage Results" MODIFIED="1769107258350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/studentdata___2410312$main.coverage" NAME="main Coverage Results" MODIFIED="1765186270638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/studentdata___2410312$create_db.coverage" NAME="create_db Coverage Results" MODIFIED="1768646059585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/studentdata___2410312$.coverage" NAME=" Coverage Results" MODIFIED="1769097172402" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/studentdata___2410312$.coverage" NAME=" Coverage Results" MODIFIED="1769107228587" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -32,7 +32,7 @@ def plot_grade_distribution(conn):
     plt.show()
 
 
-# Grade distribution shown on a pie chart
+# Passes vs Fails shown on a pie chart
 def plot_pass_vs_fail_pie(conn):
     passes = calculate_num_passes_sqlite(conn)
     fails = calculate_num_fails_sqlite(conn)
@@ -47,7 +47,7 @@ def plot_pass_vs_fail_pie(conn):
         labels=labels,
         colors=colors,
         autopct='%1.1f%%',
-        tartangle=90
+        startangle=90
     )
     plt.title("Pass vs Fail Distribution")
     plt.axis('equal')
