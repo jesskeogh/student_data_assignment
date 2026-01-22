@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="439cef36-fdea-4b6e-b084-f381914a0fa0" name="Changes" comment="Adding tests and fixing bugs">
-      <change afterPath="$PROJECT_DIR$/object_orientated_example.py" afterDir="false" />
+    <list default="true" id="439cef36-fdea-4b6e-b084-f381914a0fa0" name="Changes" comment="Adding an Object Orientated python example">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +66,7 @@
     "Python.graphing.executor": "Run",
     "Python.gui.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.object_orientated_example.executor": "Run",
     "Python.readfile.executor": "Run",
     "Python.studentdata_gui.executor": "Run",
     "Python.test.executor": "Run",
@@ -239,7 +241,7 @@
       <workItem from="1768736376387" duration="801000" />
       <workItem from="1768740642903" duration="631000" />
       <workItem from="1768742505079" duration="433000" />
-      <workItem from="1769008481152" duration="35571000" />
+      <workItem from="1769008481152" duration="40945000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -353,7 +355,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769107887207</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Adding an Object Orientated python example">
+      <option name="closed" value="true" />
+      <created>1769108475655</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1769108475655</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,7 +396,8 @@
     <MESSAGE value="Making the code best practice and formatted correctly" />
     <MESSAGE value="Starting to add tests" />
     <MESSAGE value="Adding tests and fixing bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding tests and fixing bugs" />
+    <MESSAGE value="Adding an Object Orientated python example" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding an Object Orientated python example" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/studentdata___2410312$gui.coverage" NAME="gui Coverage Results" MODIFIED="1765290906404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -397,7 +408,8 @@
     <SUITE FILE_PATH="coverage/studentdata___2410312$readfile.coverage" NAME="readfile Coverage Results" MODIFIED="1762525102387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/studentdata___2410312$tkinter.coverage" NAME="tkinter Coverage Results" MODIFIED="1765290851593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/studentdata___2410312$test_calculations.coverage" NAME="test_calculations Coverage Results" MODIFIED="1769097076555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/studentdata___2410312$studentdata_gui.coverage" NAME="studentdata_gui Coverage Results" MODIFIED="1769107258350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/studentdata___2410312$studentdata_gui.coverage" NAME="studentdata_gui Coverage Results" MODIFIED="1769108378260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/studentdata___2410312$object_orientated_example.coverage" NAME="object_orientated_example Coverage Results" MODIFIED="1769113641034" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/studentdata___2410312$main.coverage" NAME="main Coverage Results" MODIFIED="1765186270638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/studentdata___2410312$create_db.coverage" NAME="create_db Coverage Results" MODIFIED="1768646059585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/studentdata___2410312$.coverage" NAME=" Coverage Results" MODIFIED="1769107228587" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
