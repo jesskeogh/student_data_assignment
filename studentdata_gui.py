@@ -26,12 +26,15 @@ app.title("Student Data Menu")
 # Text inside the app
 ttk.Label(app, text="Menu").grid(column=0, row=0)
 
+def show_avg_grade():
+    avg = calculate_average_grade_sqlite(conn)
+    avg_label.config(text=f"Average Grade: {avg}")
 
-# Show graph
+# Show average grade
 show_average_grade = ttk.Button(
     app,
     text="Show average grade (SQL)",
-    command=print(calculate_average_grade_sqlite(conn))
+    command=show_avg_grade
 )
 show_average_grade.grid(
     column=0,
@@ -40,10 +43,19 @@ show_average_grade.grid(
     pady=10
 )
 
+avg_label = ttk.Label(app, text="Average grade will appear here")
+avg_label.grid(column=0, row=2, padx=10, pady=10)
+
 show_grade_against_attendance = ttk.Button(
     app,
     text="Show grade against attendance",
     command=plot_grade_against_attendance(df)
+)
+show_grade_against_attendance.grid(
+    column=1,
+    row=2,
+    padx=10,
+    pady=10
 )
 
 # Exit Button

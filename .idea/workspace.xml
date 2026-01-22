@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="439cef36-fdea-4b6e-b084-f381914a0fa0" name="Changes" comment="Adding correlation graph for attendance vs grade">
-      <change beforePath="$PROJECT_DIR$/calculations.py" beforeDir="false" afterPath="$PROJECT_DIR$/calculations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_operations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphing.py" beforeDir="false" afterPath="$PROJECT_DIR$/graphing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student_grades.db" beforeDir="false" />
+    <list default="true" id="439cef36-fdea-4b6e-b084-f381914a0fa0" name="Changes" comment="Fixing Errors and Starting to process GUI menu">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/studentdata_gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/studentdata_gui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +124,7 @@
       <workItem from="1768736376387" duration="801000" />
       <workItem from="1768740642903" duration="631000" />
       <workItem from="1768742505079" duration="433000" />
-      <workItem from="1769008481152" duration="8983000" />
+      <workItem from="1769008481152" duration="12166000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -186,7 +182,23 @@
       <option name="project" value="LOCAL" />
       <updated>1767698762918</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fixing Errors and Starting to process GUI menu">
+      <option name="closed" value="true" />
+      <created>1769018561918</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1769018561918</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Fixing Errors and Starting to process GUI menu">
+      <option name="closed" value="true" />
+      <created>1769018597019</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1769018597019</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,7 +225,8 @@
     <MESSAGE value="assignment basics graphing of:&#10;- grade distribution bar graph&#10;- grade distribution pie chart" />
     <MESSAGE value="assignment basics using SQL:&#10;- Average Grade&#10;- Average Attendance &#10;- Number of Passes&#10;- Grade distribution" />
     <MESSAGE value="Adding correlation graph for attendance vs grade" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding correlation graph for attendance vs grade" />
+    <MESSAGE value="Fixing Errors and Starting to process GUI menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing Errors and Starting to process GUI menu" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/studentdata___2410312$gui.coverage" NAME="gui Coverage Results" MODIFIED="1765290906404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -222,7 +235,7 @@
     <SUITE FILE_PATH="coverage/studentdata___2410312$graphing.coverage" NAME="graphing Coverage Results" MODIFIED="1769017672689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/studentdata___2410312$test.coverage" NAME="test Coverage Results" MODIFIED="1767883718025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/studentdata___2410312$database_operations.coverage" NAME="database_operations Coverage Results" MODIFIED="1769013393283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/studentdata___2410312$studentdata_gui.coverage" NAME="studentdata_gui Coverage Results" MODIFIED="1769018055642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/studentdata___2410312$studentdata_gui.coverage" NAME="studentdata_gui Coverage Results" MODIFIED="1769074091883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/studentdata___2410312$calculations.coverage" NAME="calculations Coverage Results" MODIFIED="1769016053796" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/studentdata___2410312$main.coverage" NAME="main Coverage Results" MODIFIED="1765186270638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/studentdata___2410312$.coverage" NAME=" Coverage Results" MODIFIED="1767883875076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
